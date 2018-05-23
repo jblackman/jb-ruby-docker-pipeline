@@ -3,4 +3,4 @@
 set -e
 
 cd artefact
-bundle-bin/rspec
+.bundle-bin/bundle exec rspec
