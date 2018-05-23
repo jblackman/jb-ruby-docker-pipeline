@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Copy git-repo to artefact
-tar zcf - -C git-repo | tar zxf - -C artefact
+cp -rp git-repo/* artefact/
 
 # Bundle install
 cd artefact
