@@ -2,7 +2,7 @@ resources:
 - name: git-repo
   type: git
   source:
-    url: ((git-repo-url))
+    uri: ((git-repo-url))
     branch: ((git-repo-branch))
 - name: docker
   type: docker-image
