@@ -1,0 +1,13 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: { repository: ruby, tag: latest }
+
+inputs:
+- name: git-repo
+- name: artefact
+
+run:
+  path: git-repo/ci/tasks/unit-test/task.sh

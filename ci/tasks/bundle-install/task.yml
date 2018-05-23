@@ -1,0 +1,15 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: { repository: ruby, tag: latest }
+
+inputs:
+- name: git-repo
+
+outputs:
+- name: artefact
+
+run:
+  path: git-repo/ci/tasks/bundle-install/task.sh

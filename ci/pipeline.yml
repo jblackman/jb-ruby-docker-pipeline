@@ -1,0 +1,31 @@
+resources:
+- name: git-repo
+  type: git
+  source:
+    url: ((git-repo-url))
+    branch: ((git-repo-branch))
+- name: docker
+  type: docker-image
+  source:
+    repository: ((docker-repository))
+    username: ((docker-username))
+    password: ((docker-password))
+
+jobs:
+- name: deploy-image
+  plan:
+  - get: git-repo
+    trigger: true
+  - task: 'bundle install'
+    file: git-repo/ci/tasks/bundle-install/task.yml
+  - task: 'rubocop'
+    file: git-repo/ci/tasks/rubocop/task.yml
+  - task: 'unit test'
+    file: git-repo/ci/tasks/unit-test/task.yml
+  - task: 'build image'
+    file: git-repo/ci/tasks/build-image/task.yml
+  - put: docker
+    params:
+      build: artefact
+      dockerfile: artefact/ci/Dockerfile
+      tag: devel
