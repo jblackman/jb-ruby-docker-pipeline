@@ -7,4 +7,4 @@ cp -rp git-repo/* artefact/
 
 # Bundle install
 cd artefact
-bundle install --deployment --path=bundle
+bundle install --deployment --path=bundle --binstubs=bundle-bin
