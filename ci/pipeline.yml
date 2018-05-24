@@ -10,6 +10,7 @@ resources:
     repository: ((docker-repository))
     username: ((docker-username))
     password: ((docker-password))
+    insecure_registries: [((docker-repository))]
 
 jobs:
 - name: deploy-image
@@ -22,10 +23,7 @@ jobs:
     file: git-repo/ci/tasks/rubocop/task.yml
   - task: 'unit test'
     file: git-repo/ci/tasks/unit-test/task.yml
-  - task: 'build image'
-    file: git-repo/ci/tasks/build-image/task.yml
   - put: docker
     params:
       build: artefact
       dockerfile: artefact/ci/Dockerfile
-      tag: devel
