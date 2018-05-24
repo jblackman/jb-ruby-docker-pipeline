@@ -3,4 +3,4 @@
 set -e
 
 cd artefact
-.bundle-bin/bundle exec rubocop
+bundle exec rubocop
