@@ -1,7 +1,7 @@
 require 'pathname'
 require 'rack/test'
 
-$: << Pathname.new(__FILE__).realpath.parent.parent
+$LOAD_PATH << Pathname.new(__FILE__).realpath.parent.parent
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
