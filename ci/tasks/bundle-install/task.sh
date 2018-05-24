@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-# Copy git-repo to artefact
-cp -rp git-repo/* artefact/
+# Copy git-repo to artefact, including hidden files
+cp -rpT git-repo artefact
 
 # Bundle install
 cd artefact
