@@ -1,6 +1,5 @@
 #!/bin/sh
 
 set -e
-
-cd artefact
-.bundle-bin/bundle exec rspec
+unset BUNDLE_PATH BUNDLE_APP_CONFIG BUNDLE_BIN
+bundle exec rspec
