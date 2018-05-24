@@ -12,4 +12,6 @@ export BUNDLE_PATH=.bundle
 export BUNDLE_APP_CONFIG=.bundle
 export BUNDLE_BIN=.bundle/bin
 
+bundle config --local bin .bundle/bin
+bundle config --local path .bundle
 bundle install --deployment
