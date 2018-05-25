@@ -7,10 +7,8 @@ resources:
 - name: docker
   type: docker-image
   source:
-    repository: ((docker-repository))
-    username: ((docker-username))
-    password: ((docker-password))
-    insecure_registries: [((docker-repository))]
+    repository: ((docker-registry))/((docker-repository))
+    insecure_registries: [((docker-insecure-registries))]
 
 jobs:
 - name: deploy-image
